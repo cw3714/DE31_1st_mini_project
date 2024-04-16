@@ -1,4 +1,4 @@
-# Electronic Vehicle's Data Analysis
+# Electronic Vehicle Charge Station Data Analysis
 
 ## Summary
 이 토이프로젝트는 [Playdata](https://playdata.io)에서 진행하는 데이터 엔지니어링 프로젝트 31기 부트 캠프에서 진행하는 프로젝트입니다.
