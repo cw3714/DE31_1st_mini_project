@@ -68,3 +68,4 @@ wcwidth==0.2.13
 webdriver-manager==4.0.1
 wsproto==1.2.0
 xyzservices==2024.4.0
+mysqlclient==2.2.4
