@@ -14,9 +14,9 @@ from geopy.geocoders import Nominatim
 import subprocess
 
 # custom lib
-import naver_geocoding_api as NGA
+import src.naver_geocoding_api as NGA
 
-with open("../keys/api_key.json", "r") as f:
+with open("./keys/api_key.json", "r") as f:
     key_json = json.load(f)
 
 def extract_as_csv():
