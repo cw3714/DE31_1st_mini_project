@@ -7,9 +7,11 @@ import json
 import subprocess
 
 #도로교통공사에서 주소를 도로명주소로 변환한다음, Naver Geocoding API에 넘겨서 좌표를 받아오는 코드
-with open("naver_geocoding_api.json", "r") as f:
+with open("../keys/naver_geocoding_api.json", "r") as f:
     naver_api_keys = json.load(f)
 
+    """generate \"debug.log\" file to results directory; and print message with its time. flags are for message distinguish, which 0 is debug, 1 is error, 2 is status message. by default, flag is 0
+    """
 def log(msg, flag=None):
     if flag==None:
         flag = 0

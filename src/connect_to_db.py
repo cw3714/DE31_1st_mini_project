@@ -15,10 +15,11 @@ import subprocess
 
 # custom python lib
 import evchargestations as EV
+import naver_geocoding_api as NGA
 
 metro_codes = EV.metro_codes
 
-with open("db_info.json", "r") as f:
+with open("../keys/db_info.json", "r") as f:
     db_info = json.load(f)
     
 def connect_to_db():

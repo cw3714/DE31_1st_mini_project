@@ -13,21 +13,21 @@ import pickle
 from geopy.geocoders import Nominatim
 import subprocess
 
-with open("api_key.json", "r") as f:
+# custom lib
+import naver_geocoding_api as NGA
+
+with open("../keys/api_key.json", "r") as f:
     key_json = json.load(f)
-    
 
 def extract_as_csv():
     result_file_name_template = "ev_cs_{}.json"
-
     API_KEY = key_json['API_KEY']
-
     result_path = "./results"
     if not os.path.isdir(result_path):
         os.mkdir(result_path)
     for key in metro_codes.keys():
-        assert ev_cs_get_by_metro_code(f"{result_path}/"+result_file_name_template.format(key), API_KEY, metro_code=metro_codes[key]), print(f"[debug] > {key} extraction failed")
-        print(f"[debug] > {key} extraction success")
+        assert ev_cs_get_by_metro_code(f"{result_path}/"+result_file_name_template.format(key), API_KEY, metro_code=metro_codes[key]), NGA.log(f"{key} extraction failed")
+        NGA.log(f"{key} extraction success")
 
 metro_codes =  {
     "서울특별시" : "11",
@@ -65,7 +65,7 @@ def ev_cs_get_by_metro_code(result_file_name:str, API_KEY:str, metro_code:str, c
             json.dump(data, f, ensure_ascii=False)
             
     except Exception as e:
-        print(f"[debug] > exception : {e}")
+        NGA.log(f"exception : {e}")
         return False
     return True
     
@@ -73,21 +73,23 @@ result_file_name_template = "ev_cs_{}.json"
 
 API_KEY = key_json['API_KEY']
 
-result_path = "./results"
-if not os.path.isdir(result_path):
-    os.mkdir(result_path)
-for key in metro_codes.keys():
-    assert ev_cs_get_by_metro_code(f"{result_path}/"+result_file_name_template.format(key), API_KEY, metro_code=metro_codes[key]), print(f"[debug] > {key} extraction failed")
-    print(f"[debug] > {key} extraction success")
+def extract_charge_stations():
+    result_path = "../results"
+    if not os.path.isdir(result_path):
+        os.mkdir(result_path)
+    for key in metro_codes.keys():
+        assert ev_cs_get_by_metro_code(f"{result_path}/"+result_file_name_template.format(key), API_KEY, metro_code=metro_codes[key]), NGA.log(f"{key} extraction failed")
+        NGA.log(f"{key} extraction success")
 
-listdata = []
-for key in tqdm(metro_codes.keys()):
-    filename = result_file_name_template.format(key)
-    with open(f"{result_path}/{filename}", "r") as f:
-        file = json.load(f)
-    for info in file["data"]:
-        listdata.append(info)
-        
-data = pd.DataFrame(listdata)
-with open("./results/EV_CS_DATA.pkl", "wb") as f:
-    pickle.dump(data, f)
+    listdata = []
+    for key in tqdm(metro_codes.keys()):
+        filename = result_file_name_template.format(key)
+        with open(f"{result_path}/{filename}", "r") as f:
+            file = json.load(f)
+        for info in file["data"]:
+            listdata.append(info)
+            
+    data = pd.DataFrame(listdata)
+    with open("./results/EV_CS_DATA.pkl", "wb") as f:
+        pickle.dump(data, f)
+    return data
