@@ -1,19 +1,34 @@
 # 환경구축
-## [Git Installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+## Prerequisite
 개발 환경은 WSL Ubuntu 22.04.4 LTS입니다.
 
 윈도우 11에서 작업하셔도 가능합니다.
 
 이 파일에서 설명하는 명령어들은 Git이 설치되었다는 가정하에 설명되었습니다.
 
-혹여나 git이 설치가 제대로 되지 않았거나 다시 설치하고 싶으신 분은 위의 링크를 타고 따라 설치하시면 됩니다.
+혹여나 git이 설치가 제대로 되지 않았거나 다시 설치하고 싶으신 분은 이 [링크](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)를 통해 따라서 설치하시면 됩니다.
+
+### Git Configuration
+다음의 순서는 Git의 기본설정이 완료되었고, 파이썬 3.10이 설치되었다는 가정하에 진행됩니다.
+
+만약 Git이 설정되지 않았다면, 다음의 명령어를 실행해 git을 설정해준 다음 진행해주시면 됩니다.
+
+```bash
+git config --global user.email "깃허브@이메일"
+```
+위의 명령어를 통해 이메일을 설정합니다.
+
+```bash
+git config --global user.name "깃허브아이디"
+```
+위의 명령어를 통해 유저명을 설정합니다.
+
+만약 파이썬이 설치되어 있지 않다면,  이 [링크](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)를 통해 파이썬 3.10을 설치해주시면 됩니다.
 
 ## Repository Load
 저희는 Github이라는 Git 호스팅 사이트를 통해서 소스를 저장합니다.
 
 저희가 사용하는 레포는 [여기](https://github.com/S0rrow/EVDA)입니다.
-
-이전에 공지드렸듯이, 팀원분들 다 Collaborator로 초대를 드렸고, 혹시나 확인 안하신 분은 Github을 가입할 때 사용하신 이메일이나 사이트에서 확인해서 Collaborator로 참여해주시기 바랍니다.
 
 우선적으로 저희가 사용하는 레포지토리를 각자의 로컬 환경에 복제하는 것을 시작합니다.
 
@@ -34,22 +49,6 @@ cd ./EVDA
 현재 EVDA 폴더 내부에는 코드 테스트용으로 만들어둔 "analysis.ipynb"라는 이름의 주피터 노트북이 있습니다.
 
 해당하는 노트북을 사용하기 위해서 먼저 가상환경을 구성해줘야 합니다.
-
-다음의 순서는 Git의 기본설정이 완료되었고, 파이썬 3.10이 설치되었다는 가정하에 진행됩니다.
-
-만약 Git이 설치되지 않았다면, 다음의 명령어를 실행해 git을 설정해준 다음 진행해주시면 됩니다.
-
-```bash
-git config --global user.email "깃허브@이메일"
-```
-위의 명령어를 통해 이메일을 설정합니다.
-
-```bash
-git config --global user.name "깃허브아이디"
-```
-위의 명령어를 통해 유저명을 설정합니다.
-
-만약 파이썬이 설치되어 있지 않다면,  이 [링크](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)를 통해 파이썬 3.10을 설치해주시면 됩니다.
 
 ### Virtual Environment
 가상환경을 구성하기 위해 파이썬 3.10이 설치되었다면 다음의 명령어를 실행합니다.
