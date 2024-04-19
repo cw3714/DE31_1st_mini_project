@@ -1,8 +1,12 @@
 # 환경구축
 ## [Git Installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-기본적으로 어제 git의 기본은 배웠으니만큼 git 자체는 이미 설치되어 있다고 가정하고 진행하겠습니다.
+개발 환경은 WSL Ubuntu 22.04.4 LTS입니다.
 
-다만 혹여나 git이 설치가 제대로 되지 않았거나 다시 설치하고 싶으신 분은 위의 링크를 타고 따라 설치하시면 됩니다.
+윈도우 11에서 작업하셔도 가능합니다.
+
+이 파일에서 설명하는 명령어들은 Git이 설치되었다는 가정하에 설명되었습니다.
+
+혹여나 git이 설치가 제대로 되지 않았거나 다시 설치하고 싶으신 분은 위의 링크를 타고 따라 설치하시면 됩니다.
 
 ## Repository Load
 저희는 Github이라는 Git 호스팅 사이트를 통해서 소스를 저장합니다.
@@ -66,7 +70,7 @@ python -m venv .venv
 ```bash
 . ./.venv/bin/activate
 ```
-윈도우11의 경우와 리눅스의 경로가 다르기 때문에 맞는 환경에서 실행해주면 됩니다.
+윈도우11과 리눅스의 경로가 다르기 때문에 맞는 환경에서 실행해주면 됩니다.
 
 가상환경을 실행했다면, pip를 통해 필요한 패키지들을 설치해 줍니다.
 
@@ -84,6 +88,8 @@ python -m pip install -r requirements.txt
 
 ### Coding
 가장 우선적으로, 개개인이 작성하는 소스코드는 개개인의 branch를 통해 작성되어야 합니다.
+
+branch 개념에 대한 설명은 다음의 [링크](https://nulab.com/ko/learn/software-development/git-tutorial/git-collaboration/branches/what-is-a-git-branch/#:~:text=Git%20%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%8A%94%20%EB%B3%B8%EC%A7%88%EC%A0%81%EC%9C%BC%EB%A1%9C,%EB%A1%9C%20%EB%B3%91%ED%95%A9%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.)를 참조해 주세요.
 
 ```bash
 git checkout -b BRANCHNAME
