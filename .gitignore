@@ -1,1 +1,8 @@
 .venv
+results/
+db_info.json
+api_key.json
+naver_geocoding_api.json
+code_snippets.py
+debug.log
+data/
