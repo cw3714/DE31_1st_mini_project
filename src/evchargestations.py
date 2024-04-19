@@ -14,9 +14,9 @@ from geopy.geocoders import Nominatim
 import subprocess
 
 # custom lib
-import naver_geocoding_api as NGA
+import src.naver_geocoding_api as NGA
 
-with open("../keys/api_key.json", "r") as f:
+with open("./keys/api_key.json", "r") as f:
     key_json = json.load(f)
 
 def extract_as_csv():
@@ -73,7 +73,7 @@ result_file_name_template = "ev_cs_{}.json"
 
 API_KEY = key_json['API_KEY']
 
-def extract_charge_stations():
+def extract_charge_stations()->pd.DataFrame:
     result_path = "../results"
     if not os.path.isdir(result_path):
         os.mkdir(result_path)
